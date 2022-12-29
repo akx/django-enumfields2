@@ -2,7 +2,7 @@ from django.core.exceptions import ValidationError
 from django.forms import BaseForm
 
 import pytest
-from enumfields import EnumField
+from enumfields import Enum, EnumField
 
 from .enums import Color, IntegerEnum
 
@@ -64,3 +64,11 @@ def test_invalid_to_python_fails():
 
 def test_import_by_string():
     assert EnumField("tests.test_enums.Color").enum == Color
+
+
+def test_programmatic():
+    Foople = Enum('Foople', {
+        'Red': 'r',
+        'Green': 'g',
+        'Blue': 'b',
+    })

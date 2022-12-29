@@ -8,7 +8,9 @@ from django.utils.encoding import force_str
 
 
 class EnumMeta(BaseEnumMeta):
-    def __new__(mcs, name, bases, attrs):
+    def __new__(mcs, name, bases, attrs, **kwds):
+        if kwds.get('boundary'):
+            raise ValueError('boundary should not be set')
         Labels = attrs.get('Labels')
 
         if Labels is not None and inspect.isclass(Labels):
