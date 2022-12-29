@@ -1,3 +1,7 @@
+# 3.0.1 (django-enumfields2, released 2022-12-29)
+
+* Support `Enum(...)` style construction on Python 3.11 too.
+
 # 3.0.0 (django-enumfields2, released 2022-12-29)
 
 * Remove support for old versions of Django and Python.
