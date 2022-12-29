@@ -1,3 +1,9 @@
+# 3.0.0 (django-enumfields2, released 2022-12-29)
+
+* Remove support for old versions of Django and Python.
+* Add support for Python 3.11.
+* Add support for deferred fields.
+
 # 2.1.1 (released 2021-02-23)
 
 * Fix string-to-enum conversion regression mistakenly

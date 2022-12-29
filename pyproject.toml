@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "django-enumfields"
+name = "django-enumfields2"
 dynamic = ["version"]
 description = "Real Python Enums for Django."
 readme = "README.rst"

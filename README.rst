@@ -1,18 +1,19 @@
 This package lets you use real Python (PEP435_-style) enums with Django.
 
-.. image:: https://travis-ci.org/hzdg/django-enumfields.svg?branch=master
-    :target: https://travis-ci.org/hzdg/django-enumfields
+``django-enumfields2`` is a friendly drop-in fork of ``hzdg/django-enumfields`` that's still maintained.
 
-.. image:: https://img.shields.io/pypi/v/django-enumfields.svg
-    :target: https://pypi.python.org/pypi/django-enumfields
+.. image:: https://github.com/akx/django-enumfields2/actions/workflows/ci.yml/badge.svg
 
-.. image:: https://img.shields.io/pypi/pyversions/django-enumfields.svg
-    :target: https://pypi.python.org/pypi/django-enumfields/
+.. image:: https://img.shields.io/pypi/v/django-enumfields2.svg
+    :target: https://pypi.python.org/pypi/django-enumfields2/
+
+.. image:: https://img.shields.io/pypi/pyversions/django-enumfields2.svg
+    :target: https://pypi.python.org/pypi/django-enumfields2/
 
 Installation
 ------------
 
-1. ``pip install django-enumfields``
+1. ``pip install django-enumfields2``
 
 
 Included Tools
