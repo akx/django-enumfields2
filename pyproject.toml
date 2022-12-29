@@ -36,7 +36,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/hzdg/django-enumfields"
+Homepage = "https://github.com/akx/django-enumfields2"
+Issues = "https://github.com/akx/django-enumfields2/issues"
 
 [tool.hatch.version]
 path = "enumfields/__init__.py"
