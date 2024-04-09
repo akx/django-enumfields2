@@ -1,5 +1,4 @@
 from django.utils.encoding import force_str
-
 from rest_framework.fields import ChoiceField
 
 

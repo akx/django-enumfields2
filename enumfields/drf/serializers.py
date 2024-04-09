@@ -1,6 +1,7 @@
+from rest_framework.fields import CharField, ChoiceField, IntegerField
+
 from enumfields.drf.fields import EnumField as EnumSerializerField
 from enumfields.fields import EnumFieldMixin
-from rest_framework.fields import CharField, ChoiceField, IntegerField
 
 
 class EnumSupportSerializerMixin:

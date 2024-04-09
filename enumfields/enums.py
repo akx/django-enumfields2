@@ -1,8 +1,8 @@
-import sys
 import inspect
-from enum import _EnumDict
+import sys
 from enum import Enum as BaseEnum
 from enum import EnumMeta as BaseEnumMeta
+from enum import _EnumDict
 
 from django.utils.encoding import force_str
 

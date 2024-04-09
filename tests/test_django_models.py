@@ -1,6 +1,5 @@
-from django.db import connection
-
 import pytest
+from django.db import connection
 
 from .enums import Color, IntegerEnum, LabeledEnum, Taste, ZeroEnum
 from .models import MyModel

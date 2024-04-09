@@ -3,6 +3,7 @@ import uuid
 
 import pytest
 from django.urls import reverse
+
 from enumfields import EnumIntegerField
 
 from .enums import Color, IntegerEnum, Taste, ZeroEnum
