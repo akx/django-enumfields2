@@ -47,6 +47,9 @@ include = [
     "/enumfields",
 ]
 
+[tool.hatch.build.targets.wheel]
+packages = ["enumfields"]
+
 [tool.ruff]
 line-length = 120
 
