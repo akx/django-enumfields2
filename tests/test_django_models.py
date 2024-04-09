@@ -94,9 +94,9 @@ def test_int_enum():
 def test_serialization():
     from django.core.serializers.python import Serializer as PythonSerializer
     m = MyModel(color=Color.RED, taste=Taste.SALTY)
-    ser = PythonSerializer()
-    ser.serialize([m])
-    fields = ser.getvalue()[0]["fields"]
+    serializer = PythonSerializer()
+    serializer.serialize([m])
+    fields = serializer.getvalue()[0]["fields"]
     assert fields["color"] == m.color.value
     assert fields["taste"] == m.taste.value
 
