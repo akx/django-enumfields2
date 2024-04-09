@@ -64,3 +64,8 @@ extend-select = [
 
 [tool.ruff.lint.mccabe]
 max-complexity = 10
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+norecursedirs = [".git", ".tox", ".eggs", ".cache", "htmlcov", "venv*"]
+doctest_optionflags = ["NORMALIZE_WHITESPACE", "IGNORE_EXCEPTION_DETAIL", "ALLOW_UNICODE"]
