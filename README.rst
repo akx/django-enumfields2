@@ -114,12 +114,12 @@ Django Rest Framework integration
     # models.py
     from enumfields import EnumField
     from enum import Enum
-    
+
     class Color(Enum):
         RED = 'r'
         GREEN = 'g'
         BLUE = 'b'
-    
+
     class MyModel(models.Model):
         color = EnumField(Color, max_length=1)
 

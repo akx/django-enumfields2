@@ -4,10 +4,23 @@ on:
     branches:
       - master
   pull_request:
-    branches:
-      - master
 jobs:
+  Lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pre-commit/action@v3.0.1
   Build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python -m pip install -U build
+      - run: python -m build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/*
+  Test:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
@@ -17,9 +30,9 @@ jobs:
           - python-version: '3.10'
           - python-version: '3.11'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: 'Set up Python ${{ matrix.python-version }}'
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '${{ matrix.python-version }}'
           cache: pip

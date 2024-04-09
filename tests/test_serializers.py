@@ -1,9 +1,10 @@
 import uuid
 
 import pytest
+from rest_framework import serializers
+
 from enumfields.drf import EnumField
 from enumfields.drf.serializers import EnumSupportSerializerMixin
-from rest_framework import serializers
 
 from .enums import Color, IntegerEnum, Taste
 from .models import MyModel

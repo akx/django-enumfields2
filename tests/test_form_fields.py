@@ -1,7 +1,6 @@
+import pytest
 from django.db.models import BLANK_CHOICE_DASH
 from django.forms.models import model_to_dict, modelform_factory
-
-import pytest
 
 from .enums import Color, ZeroEnum
 from .models import MyModel

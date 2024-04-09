@@ -1,7 +1,7 @@
+import pytest
 from django.core.exceptions import ValidationError
 from django.forms import BaseForm
 
-import pytest
 from enumfields import Enum, EnumField
 
 from .enums import Color, IntegerEnum
@@ -72,3 +72,7 @@ def test_programmatic():
         'Green': 'g',
         'Blue': 'b',
     })
+    assert Foople.Red == Foople('r')
+    assert Foople.Red.label == 'Red'
+    assert Foople.Red.value == 'r'
+    assert Foople.Red.name == 'Red'

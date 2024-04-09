@@ -46,3 +46,26 @@ path = "enumfields/__init__.py"
 include = [
     "/enumfields",
 ]
+
+[tool.hatch.build.targets.wheel]
+packages = ["enumfields"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+extend-select = [
+    "C9",
+    "E",
+    "F",
+    "I",
+    "W",
+]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+norecursedirs = [".git", ".tox", ".eggs", ".cache", "htmlcov", "venv*"]
+doctest_optionflags = ["NORMALIZE_WHITESPACE", "IGNORE_EXCEPTION_DETAIL", "ALLOW_UNICODE"]

@@ -45,4 +45,3 @@
 * Feature: Warn when some values of an enum won't fit in the backing database field
 * Packaging: PEP-396 compliant `__version__` attribute
 * Packaging: Tests are now packaged with the source distribution
-
