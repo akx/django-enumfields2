@@ -27,24 +27,19 @@ jobs:
           name: dist
           path: dist/*
   Test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         include:
-          - python-version: '3.8'
-          - python-version: '3.9'
           - python-version: '3.10'
           - python-version: '3.11'
           - python-version: '3.12'
           - python-version: '3.13'
+          - python-version: '3.14'
     steps:
-      - uses: actions/checkout@v4
-      - name: 'Set up Python ${{ matrix.python-version }}'
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v7
         with:
-          python-version: '${{ matrix.python-version }}'
-          cache: pip
-          cache-dependency-path: pyproject.toml
-      - run: pip install -U pip wheel setuptools tox tox-gh
-      - run: tox
+          python-version: ${{ matrix.python-version }}
+      - run: uvx --with=tox-gh --with=tox-uv tox
