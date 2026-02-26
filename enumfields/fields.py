@@ -40,13 +40,14 @@ class EnumFieldMixin:
     def to_python(self, value):
         if value is None or value == '':
             return None
-        if isinstance(value, self.enum):
-            return value
-        for m in self.enum:
-            if value == m:
-                return m
-            if value == m.value or str(value) == str(m.value) or str(value) == str(m):
-                return m
+        try:
+            return self.enum(value)
+        except ValueError:
+            for m in self.enum:
+                if value == m:
+                    return m
+                if value == m.value or str(value) == str(m.value) or str(value) == str(m):
+                    return m
         raise ValidationError('{} is not a valid value for enum {}'.format(value, self.enum), code="invalid_enum_value")
 
     def get_prep_value(self, value):
