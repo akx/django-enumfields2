@@ -1,12 +1,12 @@
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.3.5
+    rev: 3fe39287d165e090f89effa3985ca987300a6b6f  # frozen: v0.15.3
     hooks:
-      - id: ruff
+      - id: ruff-check
         args:
           - --fix
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # frozen: v6.0.0
     hooks:
       - id: check-merge-conflict
       - id: check-yaml
@@ -17,6 +17,6 @@ repos:
         args:
           - --fix=lf
   - repo: https://github.com/crate-ci/typos
-    rev: v1.18.2
+    rev: 57b11c6b7e54c402ccd9cda953f1072ec4f78e33  # frozen: v1.43.5
     hooks:
       - id: typos
