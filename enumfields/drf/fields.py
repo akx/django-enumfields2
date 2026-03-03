@@ -1,9 +1,20 @@
+from __future__ import annotations
+
+from enum import Enum
+from typing import Any
+
 from django.utils.encoding import force_str
 from rest_framework.fields import ChoiceField
 
 
-class EnumField(ChoiceField):
-    def __init__(self, enum, lenient=False, ints_as_names=False, **kwargs):
+class EnumField(ChoiceField):  # type: ignore[misc]
+    def __init__(
+        self,
+        enum: type[Enum],
+        lenient: bool = False,
+        ints_as_names: bool = False,
+        **kwargs: Any,
+    ) -> None:
         """
         :param enum: The enumeration class.
         :param lenient: Whether to allow lenient parsing (case-insensitive, by value or name)
@@ -17,7 +28,7 @@ class EnumField(ChoiceField):
         kwargs['choices'] = tuple((e.value, getattr(e, 'label', e.name)) for e in self.enum)
         super().__init__(**kwargs)
 
-    def to_representation(self, instance):
+    def to_representation(self, instance: Any) -> Any:
         if instance in ('', None):
             return instance
         try:
@@ -30,7 +41,7 @@ class EnumField(ChoiceField):
         except ValueError:
             raise ValueError('Invalid value [{!r}] of enum {}'.format(instance, self.enum.__name__))
 
-    def to_internal_value(self, data):
+    def to_internal_value(self, data: Any) -> Any:
         if isinstance(data, self.enum):
             return data
         try:
