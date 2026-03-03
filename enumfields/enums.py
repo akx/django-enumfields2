@@ -1,14 +1,16 @@
+from __future__ import annotations
+
 import inspect
 import sys
 from enum import Enum as BaseEnum
 from enum import EnumMeta as BaseEnumMeta
-from enum import _EnumDict
+from typing import Any
 
 from django.utils.encoding import force_str
 
 
 class EnumMeta(BaseEnumMeta):
-    def __new__(mcs, name, bases, attrs, **kwds):
+    def __new__(mcs, name, bases, attrs, **kwds):  # type: ignore
         if kwds.get('boundary'):
             raise ValueError('boundary should not be set')
         Labels = attrs.get('Labels')
@@ -25,6 +27,7 @@ class EnumMeta(BaseEnumMeta):
             attrs._cls_name = name
 
         obj = BaseEnumMeta.__new__(mcs, name, bases, attrs)
+        m: BaseEnum
         for m in obj:
             try:
                 m.label = getattr(Labels, m.name)
@@ -34,16 +37,18 @@ class EnumMeta(BaseEnumMeta):
         return obj
 
 
-class Enum(EnumMeta('Enum', (BaseEnum,), _EnumDict())):
+class Enum(BaseEnum, metaclass=EnumMeta):
+    label: str  # Set dynamically by EnumMeta
+
     @classmethod
-    def choices(cls):
+    def choices(cls) -> tuple[tuple[Any, str], ...]:
         """
         Returns a list formatted for use as field choices.
         (See https://docs.djangoproject.com/en/dev/ref/models/fields/#choices)
         """
         return tuple((m.value, m.label) for m in cls)
 
-    def __str__(self):
+    def __str__(self) -> str:
         """
         Show our label when Django uses the Enum for displaying in a view
         """
@@ -51,5 +56,5 @@ class Enum(EnumMeta('Enum', (BaseEnum,), _EnumDict())):
 
 
 class IntEnum(int, Enum):
-    def __str__(self):  # See Enum.__str__
+    def __str__(self) -> str:  # See Enum.__str__
         return force_str(self.label)
