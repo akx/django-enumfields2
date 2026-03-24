@@ -1,3 +1,13 @@
+# 4.0 (django-enumfields2, released 2026-03-24)
+
+The minimum Django version supported by this version is 4.2.
+The minimum Python version supported by this version is 3.10.
+
+* DX: Add some type hinting (#16)
+* Performance: Add fast-path to to_python (#13)
+* IRenovate CI, support Django 6.x, drop old Pythons (#8, #14)
+* Support Python 3.13, Django 5.0, 5.1, 5.2 (#11)
+
 # 3.0.2 (django-enumfields2, released 2022-12-29)
 
 * Corrected metadata, no functional changes.
